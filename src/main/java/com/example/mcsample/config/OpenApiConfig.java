@@ -13,8 +13,8 @@ public class OpenApiConfig {
     private static final String TITLE = "Шаблонный проект микросервиса";
     private static final String DESCRIPTION = "Шаблонный проект микросервиса";
     private static final Contact CONTACT = new Contact()
-            .name("Веюков К.Г.")
-            .email("veyukov.k.ge@sberbank.ru");
+            .name("Zibura Z.Z.")
+            .email("zibura.z.ge@zibura.ru");
 
     @Bean
     public OpenAPI customOpenAPI() {
