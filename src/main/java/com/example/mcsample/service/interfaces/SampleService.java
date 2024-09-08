@@ -7,4 +7,7 @@ public interface SampleService {
     SampleDTO generateEcho(String text);
 
     String generateNotFoundException();
+
+    SampleDTO sampleSave(SampleDTO sampleDTO);
+
 }

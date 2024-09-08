@@ -28,4 +28,9 @@ public class SampleControllerImpl implements SampleApi {
         return ResponseHandler.generateResponse(HttpStatus.OK, sampleService.generateNotFoundException());
     }
 
+    @Override
+    public ResponseEntity<ResponseObj<SampleDTO>> postSample(SampleDTO sampleDTO) {
+        return ResponseHandler.generateResponse(HttpStatus.OK, sampleService.sampleSave(sampleDTO));
+    }
+
 }
