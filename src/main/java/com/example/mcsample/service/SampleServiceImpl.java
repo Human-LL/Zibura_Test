@@ -7,7 +7,7 @@ import static com.example.mcsample.utill.MessageTexts.NOT_FOUND;
 import com.example.mcsample.dto.SampleDTO;
 import com.example.mcsample.exception.NotFoundException;
 import com.example.mcsample.mapper.SampleMapper;
-import com.example.mcsample.repository.SamoleRepository;
+import com.example.mcsample.repository.SampleRepository;
 import com.example.mcsample.service.interfaces.SampleService;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
@@ -20,13 +20,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SampleServiceImpl implements SampleService {
 
-    private SamoleRepository samoleRepository;
+    private SampleRepository sampleRepository;
 
     private SampleMapper sampleMapper;
 
     @Autowired
-    public SampleServiceImpl(SamoleRepository samoleRepository, SampleMapper sampleMapper) {
-        this.samoleRepository = samoleRepository;
+    public SampleServiceImpl(SampleRepository sampleRepository, SampleMapper sampleMapper) {
+        this.sampleRepository = sampleRepository;
         this.sampleMapper = sampleMapper;
     }
 
@@ -47,7 +47,7 @@ public class SampleServiceImpl implements SampleService {
     public SampleDTO sampleSave(SampleDTO sampleDTO) {
         var entity = sampleMapper.toEntity(sampleDTO);
         entity.setUid(UUID.randomUUID());
-        samoleRepository.save(entity);
+        sampleRepository.save(entity);
         return sampleMapper.toDTO(entity);
     }
 }
