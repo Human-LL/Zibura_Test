@@ -51,5 +51,4 @@ public class AppMessage {
     public static AppMessage status(String massage) {
         return new AppMessage(AppMessageSemantic.S, massage, massage, "");
     }
-
 }
