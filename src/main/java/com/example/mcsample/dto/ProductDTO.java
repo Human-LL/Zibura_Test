@@ -1,6 +1,5 @@
 package com.example.mcsample.dto;
 
-import com.example.mcsample.entity.Contact;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,24 +7,30 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.math.BigDecimal;
 import java.util.UUID;
 
+@Data
 @Getter
 @Setter
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
+public class ProductDTO {
 
     private UUID id;
 
     private String name;
 
-    private String lastName;
+    private String description;
 
-    private Set<Contact> emails;
+    private BigDecimal price;
 
+    private BigDecimal discount;
+
+    private UUID categoryId;
+
+    private int stockQuantity;
+
+    private String imageUrl;
 }

@@ -4,12 +4,12 @@ server:
     context-path: /sample
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: tech_bw_lcr_pg_xwr
-    password: wkjYeWepoQaseNysh
+    url: jdbc:postgresql://localhost:5432/Top-secret
+    username: postgres
+    password: root
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create-drop
     properties:
       hibernate:
         jdbc.lob.non_contextual_creation: true
@@ -37,3 +37,4 @@ springdoc:
     path: /swagger-ui.html
     operationsSorter: method
     tagsSorter: alpha
+

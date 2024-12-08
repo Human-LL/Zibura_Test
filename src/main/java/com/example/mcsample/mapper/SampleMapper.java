@@ -9,7 +9,7 @@ import org.mapstruct.MappingConstants;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface SampleMapper {
     @Mapping(target = "uid", ignore = true)
-Samples toEntity(SampleDTO sampleDTO);
+    Samples toEntity(SampleDTO sampleDTO);
 
     SampleDTO toDTO(Samples samples);
 }

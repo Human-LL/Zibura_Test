@@ -5,6 +5,8 @@ import com.example.mcsample.dto.UserDTO;
 import com.example.mcsample.dto.response.ResponseHandler;
 import com.example.mcsample.dto.response.ResponseObj;
 import com.example.mcsample.service.interfaces.UserService;
+
+import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -20,17 +22,33 @@ public class UserControllerImpl implements UserApi {
     private final UserService userService;
 
     @Override
-    public ResponseEntity<ResponseObj<UserDTO>> getAllUsers(UserDTO userDTO) {
-        return null;
+    public ResponseEntity<ResponseObj<UserDTO>> readUser(UUID uuid) {
+        return ResponseHandler.generateResponse(HttpStatus.OK, userService.findById(uuid));
     }
 
     @Override
-    public ResponseEntity<ResponseObj<UserDTO>> getUserById(UUID id) {
-        return  ResponseHandler.generateResponse(HttpStatus.OK, userService.getById(id));
+    public ResponseEntity<ResponseObj<List<UserDTO>>> readAllUser() {
+        return ResponseHandler.generateResponse(HttpStatus.OK, userService.findAll());
     }
 
     @Override
-    public ResponseEntity<ResponseObj<UserDTO>> createUser(UserDTO userDTO) {
-        return ResponseHandler.generateResponse(HttpStatus.OK, userService.saveUser(userDTO));
+    public ResponseEntity<ResponseObj<List<UserDTO>>> createUser(UserDTO dto) {
+        return ResponseHandler.generateResponse(HttpStatus.OK, userService.save(dto));
     }
+
+    @Override
+    public ResponseEntity<ResponseObj<UserDTO>> updateUser(UUID id, UserDTO dto) {
+        return ResponseHandler.generateResponse(HttpStatus.OK, userService.update(id, dto));
+    }
+
+    @Override
+    public ResponseEntity<ResponseObj<String>> deleteUser(UUID id) {
+        return ResponseHandler.generateResponse(HttpStatus.OK, userService.delete(id));
+    }
+
+    @Override
+    public ResponseEntity<ResponseObj<List<UserDTO>>> readAllByTag(String tag) {
+        return ResponseHandler.generateResponse(HttpStatus.OK, userService.findAllByTag(tag));
+    }
+
 }
